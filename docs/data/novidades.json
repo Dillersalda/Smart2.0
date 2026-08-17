@@ -3,7 +3,7 @@
         "tag": "Lançamento",
         "titulo": "Nova Scooter X11 2026",
         "descricao": "Mais potência, autonomia e design futurista",
-        "imagem": "assets/images/x11-novidades.png",
+        "imagem": "assets/images/X11-novidades.png",
         "alt": "Scooter X11 2026"
     },
 
@@ -27,7 +27,7 @@
         "tag": "Iphones",
         "titulo": "Aparelhos Semi-novos e Lacrados",
         "descricao": "Seu Iphone novo com até 1 ano de garantia!",
-        "imagem": "assets/images/assistencia.png",
-        "alt": "Assistencia Tecnica"
+        "imagem": "assets/images/iphones.png",
+        "alt": "Iphones Lacrados e semi novos"
     }
 ]

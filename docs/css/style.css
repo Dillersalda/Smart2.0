@@ -392,6 +392,11 @@ body {
     background: #111312;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.novidades-card.trocando{
+    opacity: 0;
 }
 
 .novidades-conteudo {
@@ -472,12 +477,19 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition:
+    width 0.3s ease,
+    background 0.3s ease,
+    transform 0.3 ease;
 }
 
 .indicador.ativo {
     width: 18px;
     background: var(--verde);
+}
+
+.indicador:hover {
+    transform: scale(1.15);
 }
 
 .novidades-card::after {
