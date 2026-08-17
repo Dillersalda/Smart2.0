@@ -1,0 +1,259 @@
+/* =========================================================
+    CONFIGURAÇÕES GERAIS
+============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde: #7DFF4D;
+    --preto: #0A0A0A;
+    --cinza: #1E1E1E;
+    --branco: #ffffff;
+}
+
+body {
+    background: var(--preto);
+    color: var(--branco);
+    font-family: "Montserrat",sans-serif;
+}
+
+/* =========================================================
+    HEADER
+============================================================ */ 
+
+.header {
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    background: var(--preto);
+}
+
+/* ============================================================
+    LOGO  
+=============================================================== */
+
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+    display: block;
+}
+
+/* ===============================================================
+    MENU MOBILE
+================================================================== */
+
+.menu-btn {
+    background: transparent;
+    border: none;
+    color: var(--verde);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    right: -100%;
+
+    width: 82%;
+    max-width: 320px;
+    height: 100vh;
+
+    background: var(--preto);
+    padding: 20px;
+    z-index: 1000;
+    border-left:1px solid rgba(125,255,77,0.15);
+    transition: right 0.35s ease;
+}
+
+.menu-mobile.ativo {
+    right: 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    transition: opacity 0.3s ease;
+}
+
+
+
+.menu-overlay.ativo{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =======================================================
+    Topo do Menu
+========================================================== */
+
+.menu-topo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.menu-topo img {
+    width: 90px;
+    height: auto;
+}
+
+/* =======================================================
+    Botão Fechar
+========================================================== */
+
+.fechar-menu {
+    background: transparent;
+    border: none;
+
+    color: var(--branco);
+
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ========================================================
+    Links
+=========================================================== */
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-links a {
+    color: #d9d9d9;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 16px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+.menu-links a:hover {
+    color: var(--verde);
+    background: rgba(125,255,77,0.08);
+}
+
+.menu-links a.ativo{
+    color: var(--verde);
+    background: rgba(125,255,77,0.1);
+}
+
+/* ==========================================================
+    Hero
+============================================================= */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0,0,0,0.80) 0%,
+        rgba(0,0,0,0.35) 55%,
+        rgba(0,0,0,0.05) 100%
+    );
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    max-width: 280px;
+}
+
+.hero h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.05;
+    max-width: 290px;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--verde);
+}
+
+.hero p {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.btn-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    background: var(--verde);
+    color: var(--preto);
+
+    padding: 14px 18px;
+    border-radius: 30px;
+
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.descubra-mais {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+}
+
+.descubra-mais span {
+    display: block;
+    color: var(--branco);
+    font-size: 1.7rem;
+}
+
+.descubra-mais p {
+    margin: 4px 0 0;
+    color: var(--branco);
+    font-size:0.7rem;
+    text-transform: uppercase;
+}
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    padding: 30px 20px;
+    background-image: url(../assets/images/hero-smartblin.png);
+    background-size: cover;
+    background-position: 58% center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+
