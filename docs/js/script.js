@@ -37,3 +37,9 @@ linksMenu.forEach(link => {
         overlay.classList.remove("ativo");
     });
 });
+
+const novidades = [
+    {
+        ta
+    }
+]

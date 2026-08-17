@@ -1,0 +1,17 @@
+[
+    {
+        "tag": "Lançamento",
+        "titulo": "Nova Scooter X11 2026",
+        "descricao": "Mais potência, autonomia e design futurista",
+        "imagem": "assets/images/x11-novidades.png",
+        "alt": "Scooter X11 2026"
+    },
+
+    {
+       "tag": "Smartphones",
+        "titulo": "Novos Smartphones disponíveis",
+        "descricao": "Tecnologia e desempenho para todos os perfis.",
+        "imagem": "assets/images/x11-novidades.png",
+        "alt": "Scooter X11 2026" 
+    }
+]
