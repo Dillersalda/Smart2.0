@@ -229,3 +229,49 @@ fetch("data/produtos.json")
             currency: "BRL"
         });
     }
+
+// ==========================================================
+//         NOSSAS LOJAS
+// ==========================================================
+
+    const lojasCarrossel =
+    document.querySelector(".lojas-carrossel");
+
+    fetch("data/lojas.json")
+        .then(resposta => resposta.json())
+        .then(lojas => {
+
+            lojas.forEach(loja => {
+                const card =
+                document.createElement("article");
+
+            card.classList.add("loja-card");
+
+                card.innerHTML = `
+                <div class="loja-imagem">
+                <img src="${loja.imagem}" alt="${loja.nome}"></div>
+
+                <div class="loja-conteudo">
+
+                <h3>${loja.nome}</h3>
+
+                <p class="loja-endereco"> ${loja.endereco} </p>
+
+                <span class="loja-status"> Aberto agora</span>
+
+                <p class="loja-horario">
+                ${loja.abertura} - ${loja.fechamento}</p>
+                </div>
+                
+                <i class="fa-solid fa-location-dotloja-pin"></i>
+                `;
+            
+
+            lojasCarrossel.appendChild(card);
+        });
+    })
+    .catch(erro => {
+        console.erro("Erro ao carregar lojas:", erro);
+    });
+
+    
