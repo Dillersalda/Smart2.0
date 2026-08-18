@@ -3,8 +3,9 @@
         "nome":"Redmi Note 15 Pro",
         "categoria":"Smartphones Xiaomi",
         "especificacao":"256GB de Armazenamento / 8GB de Ram",
-        "preco":"R$:1.890,00 - A Vista",
-        "parcelas":"Em até 18x no cartão",
+        "preco":"R$:1.890,00",
+        "parcelas":"18",
+        "valorParcela": "R$:126,15",
         "imagem":"assets/images/note15-produtos.png",
         "oferta":"true"
     },
@@ -12,8 +13,9 @@
         "nome":"Poco x8 Pro 5G",
         "categoria":"Smartphones Xiaomi",
         "especificacao":"512GB de Armazenamento / 12GB de Ram",
-        "preco":"R$:1.980,00 - A Vista",
-        "parcelas":"Em até 18x no cartão",
+        "preco":"R$:1.980,00",
+        "parcelas":"18",
+        "valorParcela": "R$:132,16",
         "imagem":"assets/images/pocox8-produtos.png",
         "oferta":"true"
     },
@@ -21,8 +23,9 @@
         "nome":"Samsung A17",
         "categoria":"Smartphones Samsung",
         "especificacao":"256GB de Armazenamento / 8GB de Ram",
-        "preco":"R$:1.690,00 - A Vista",
-        "parcelas":"Em até 18x no cartão",
+        "preco":"R$:1.690,00",
+        "parcelas":"18",
+        "valorParcela":"R$:112,80",
         "imagem":"assets/images/galaxya17-produtos.png",
         "oferta":"true"
     }

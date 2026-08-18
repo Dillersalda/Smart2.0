@@ -151,12 +151,6 @@ fetch("data/novidades.json")
         setInterval(proximaNovidade, 6000);
     }
 
-    indicador.addEventListener("click", () => {
-        indiceAtual = indice;
-
-        atualizarNovidade();
-        reiniciarAutoplay();
-    });
 
 // ========================================================================================
 //  Produtos em Destaque
@@ -165,9 +159,14 @@ fetch("data/novidades.json")
 const produtosCarrossel =
 document.querySelector(".produtos-carrossel");
 
+console.log(produtosCarrossel);
+
 fetch("data/produtos.json")
-    .then(resposta => resposta.json)
+    .then(resposta => resposta.json())
     .then(produtos => {
+
+
+        console.log("produtos Carregador:", produtos);
 
         produtos.forEach(produto => {
             
@@ -186,7 +185,7 @@ fetch("data/produtos.json")
                     <i class="fa-regular fa-heart"></i>
             </button>
             
-            <div class="produtos-imagem">
+            <div class="produto-imagem">
                 <img src="${produto.imagem}"
                 alt="${produto.nome}">
             </div>
@@ -197,13 +196,18 @@ fetch("data/produtos.json")
                     ${produto.especificacao}
                 </p>
 
+                <div class="produto-preco-container">
                 <strong class="produto-preco">
                     ${formatarPreco(produto.preco)}
                 </strong>
 
+                <span class="produto-avista">
+                à vista
+                </span>
+
                 <p class="produto-parcelamento">
-                    ou ${produto.parcelas}x de
-                    ${formatarPreco(produto.preco / produto.parcelas)}
+                    ou em até ${produto.parcelas}x de
+                    ${formatarPreco(produto.valorParcela)}
                 </p>
 
                 <a href="#" class="produto-detalhes">
