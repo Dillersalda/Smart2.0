@@ -506,3 +506,33 @@ body {
     );
     pointer-events: none;
 }
+/* ===================================================================
+    Produtos em Destaque
+====================================================================== */
+
+.produtos-destaque {
+    padding: 28px 20px;
+    background: var(--preto);
+}
+
+.produtos-carrossel {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+}
+
+.produtos-carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.produtos-card {
+    flex: 0 0 85%;
+    scroll-snap-align: start;
+    background: #111312;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 14px;
+    position: relative;
+}

@@ -101,6 +101,8 @@ fetch("data/novidades.json")
     // Atualizar Novidade
     // ===================================================
 
+    const novidadesCard = document.querySelector(".novidades-card")
+
     function atualizarNovidade() {
 
         novidadesCard.classList.add("trocando");
@@ -155,3 +157,71 @@ fetch("data/novidades.json")
         atualizarNovidade();
         reiniciarAutoplay();
     });
+
+// ========================================================================================
+//  Produtos em Destaque
+// ========================================================================================
+
+const produtosCarrossel =
+document.querySelector(".produtos-carrossel");
+
+fetch("data/produtos.json")
+    .then(resposta => resposta.json)
+    .then(produtos => {
+
+        produtos.forEach(produto => {
+            
+            const card = document.createElement("article");
+
+            card.classList.add("produto-card");
+
+            card.innerHTML = `
+            ${produto.oferta
+                ? `<span class="produto-oferta">Oferta</span>`
+                : ""
+            }
+            
+            <button class="produto-favorito"
+                    aria-label="favoritar-produto">
+                    <i class="fa-regular fa-heart"></i>
+            </button>
+            
+            <div class="produtos-imagem">
+                <img src="${produto.imagem}"
+                alt="${produto.nome}">
+            </div>
+
+            <h3>${produto.nome}</h3>
+
+             <p class="produto-especificacao">
+                    ${produto.especificacao}
+                </p>
+
+                <strong class="produto-preco">
+                    ${formatarPreco(produto.preco)}
+                </strong>
+
+                <p class="produto-parcelamento">
+                    ou ${produto.parcelas}x de
+                    ${formatarPreco(produto.preco / produto.parcelas)}
+                </p>
+
+                <a href="#" class="produto-detalhes">
+                    Ver detalhes
+                </a>
+            `;
+
+            produtosCarrossel.appendChild(card);
+        });
+    })
+
+    .catch(erro => {
+        console.error("erro ao carregar produtos:", erro);
+    });
+
+    function formatarPreco(valor) {
+        return valor.toLocaleString("pt-BR", {
+            style: "currency" ,
+            currency: "BRL"
+        });
+    }
