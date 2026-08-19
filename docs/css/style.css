@@ -719,16 +719,15 @@ body {
 }
 
 .loja-imagem {
-<<<<<<< HEAD
     width: 110px;
     height: 100%;
     border-radius: 7px;
 
-=======
+}
+.loja-imagem img {
     width:110px;
     height: 100%;
     border-radius:7px ;
->>>>>>> dbca795 (melhoras no nossas lojas)
     overflow: hidden;
 }
 
@@ -739,11 +738,7 @@ body {
 }
 
 .loja-conteudo {
-<<<<<<< HEAD
     display: flex;
-=======
-    display:flex;
->>>>>>> dbca795 (melhoras no nossas lojas)
     flex-direction: column;
     justify-content: center;
     padding-right: 25px;
@@ -753,36 +748,28 @@ body {
 .loja-conteudo h3 {
     color:var(--branco);
     font-size: 0.9rem;
-<<<<<<< HEAD
     margin-bottom: 4px;
 }
 
 .loja-endereço {
     color: #c5c5c5;
     font-size: 0.68rem;
-=======
     margin-bottom:4px;
 }
 
 .loja-endereco {
     color: #c5c5c5;
     font-size:0.68rem;
->>>>>>> dbca795 (melhoras no nossas lojas)
     line-height: 1.4;
     margin-bottom: 7px;
 }
 
 .loja-status {
-<<<<<<< HEAD
-    color: var(--verde);
-=======
     color:var(--verde);
->>>>>>> dbca795 (melhoras no nossas lojas)
     font-size: 0.65rem;
     font-weight: 800;
     text-transform: uppercase;
 }
-<<<<<<< HEAD
 
 .loja-horario {
     color:#ddd;
@@ -911,7 +898,8 @@ body {
 
 .nav-item.ativo {
     color: var(--verde);
-=======
+
+}
 .loja-horario {
     color:#ddd;
     font-size: 0.65rem;
