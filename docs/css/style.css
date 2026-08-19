@@ -14,10 +14,29 @@
     --branco: #ffffff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
 body {
     background: var(--preto);
     color: var(--branco);
     font-family: "Montserrat",sans-serif;
+    padding-bottom: 68px;
+}
+
+#produtos,
+#lojas,
+#suporte {
+    scroll-margin-top: 20px;
+}
+
+#lojas {
+    scroll-margin-top: 30px;
 }
 
 /* =========================================================
@@ -697,4 +716,175 @@ body {
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 10px;
     scroll-snap-align: start;
+}
+
+.loja-imagem {
+    width: 110px;
+    height: 100%;
+    border-radius: 7px;
+
+    overflow: hidden;
+}
+
+.loja-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loja-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+.loja-conteudo h3 {
+    color:var(--branco);
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.loja-endereço {
+    color: #c5c5c5;
+    font-size: 0.68rem;
+    line-height: 1.4;
+    margin-bottom: 7px;
+}
+
+.loja-status {
+    color: var(--verde);
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.loja-horario {
+    color:#ddd;
+    font-size:0.65rem;
+    margin-top: 2px;
+}
+
+.loja-pin {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    color: var(--verde);
+    font-size: 1.2rem;
+}
+
+.loja-status.aberto {
+    color: var(--verde);
+}
+
+.loja-status.fechado {
+    color: #ff4d4d;
+}
+
+/* =================================================================
+        CTA Whatsapp
+==================================================================== */
+
+.cta-whatsapp {
+    margin: 20px;
+    padding: 14px 16px;
+
+    display:flex;
+    align-items: center;
+    gap: 12px;
+
+    background: linear-gradient(
+        90deg,
+        rgba(89,255,89,0.08),
+        rgba(17,19,18,0.95)
+    );
+
+    border: 1px solid rgba(125,255,77,0.18);
+    border-radius: 10px;
+}
+
+.cta-whatsapp > i {
+    color: var(--verde);
+    font-size: 1.8rem;
+}
+
+.cta-whatsapp-texto {
+    flex: 1;
+}
+
+.cta-whatsapp-texto h3 {
+    color: var(--branco);
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.cta-whatsapp-texto p {
+    color: #ccc;
+    font-size: 0.72rem;
+    margin: 2px 0 0;
+}
+
+.cta-whatsapp-btn {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--verde);
+    border-radius: 50%;
+
+    color: var(--verde);
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.cta-whatsapp-btn:hover {
+    background: var(--verde);
+    color: var(--preto);
+}
+
+/* ==================================================================
+        Navegação Inferior
+===================================================================== */
+
+.nav-inferior {
+    position: fixed;
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 430px;
+    height: 68px;
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    background: rgba(10,10,10, 0.96);
+    border-top:1px solid rgba(255,255,255,0.08);
+    z-index: 900;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: #d5d5d5;
+    text-decoration: none;
+    font-size: 0.62rem;
+    transition: 0.25s ease;
+}
+
+.nav-item i {
+    font-size: 1.05rem;
+}
+
+.nav-item.ativo {
+    color: var(--verde);
 }

@@ -245,6 +245,12 @@ fetch("data/produtos.json")
                 const card =
                 document.createElement("article");
 
+            const lojaAberta =
+            verificarStatusLoja(
+                    loja.abertura,
+                    loja.fechamento
+            );
+
             card.classList.add("loja-card");
 
                 card.innerHTML = `
@@ -257,13 +263,13 @@ fetch("data/produtos.json")
 
                 <p class="loja-endereco"> ${loja.endereco} </p>
 
-                <span class="loja-status"> Aberto agora</span>
+                <span class="loja-status ${lojaAberta ? "aberto" : "fechado"}">${lojaAberta ? "Aberto agora" : "Fechado agora"}</span>
 
                 <p class="loja-horario">
                 ${loja.abertura} - ${loja.fechamento}</p>
                 </div>
                 
-                <i class="fa-solid fa-location-dotloja-pin"></i>
+                <i class="fa-solid fa-location-dot loja-pin"></i>
                 `;
             
 
@@ -274,4 +280,89 @@ fetch("data/produtos.json")
         console.erro("Erro ao carregar lojas:", erro);
     });
 
-    
+    function verificarStatusLoja(abertura , fechamento) {
+
+        const agora = new Date();
+
+        const horaAtual =
+            agora.getHours() * 60 +
+            agora.getMinutes();
+
+        const [horaAbertura, minutoAbertura] =
+        abertura.split(":").map(Number);
+
+        const [horaFechamento, minutoFechamento] =
+        fechamento.split(":").map(Number);
+
+        const aberturaMinutos =
+        horaAbertura * 60 + minutoAbertura;
+
+        const fechamentoMinutos =
+        horaFechamento * 60 + minutoFechamento;
+
+        return horaAtual >= aberturaMinutos &&
+                horaAtual < fechamentoMinutos;
+    }    
+
+
+// ====================================================================================
+// Barra Inferior
+// ====================================================================================
+
+const secoes = document.querySelectorAll(
+    "#inicio, #produtos, #lojas, #suporte"
+);
+
+const navItens = document.querySelectorAll(".nav-item");
+
+function atualizarMenuAtivo() {
+
+    const produtos = document.querySelector("#produtos");
+    const lojas = document.querySelector("#lojas");
+    const suporte = document.querySelector("#suporte");
+
+    const alturaTela = window.innerHeight;
+
+    const produtosTopo =
+    produtos.getBoundingClientRect().top;
+
+    const lojasTopo =
+    lojas.getBoundingClientRect().top;
+
+    const suporteTopo =
+    suporte.getBoundingClientRect().top;
+
+    let secaoAtual = "inicio";
+
+    // Produtos
+    if (produtosTopo <= alturaTela * 0.55) {
+        secaoAtual = "produtos";
+    }
+
+    // Lojas
+
+    if (lojasTopo <= alturaTela * 0.55) {
+        secaoAtual = "lojas";
+    }
+
+    // Suporte
+    if (suporteTopo <= alturaTela * 0.85) {
+        secaoAtual = "suporte";
+    }
+
+    navItens.forEach(item => {
+        item.classList.remove("ativo");
+    });
+
+    const itemAtivo = document.querySelector(
+        `.nav-item[href="#${secaoAtual}"]`)
+}
+
+    if (itemAtivo) {
+        itemAtivo.classList.add("ativo");
+    }
+
+    window.addEventListener("scroll",atualizarMenuAtivo);
+
+    atualizarMenuAtivo();
+
