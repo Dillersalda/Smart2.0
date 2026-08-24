@@ -1,0 +1,387 @@
+@media (min-width: 768px) {
+    /* Tablets */
+}
+
+@media (min-width: 992px) {
+    /* Desktops */
+    .nav-inferior {
+        display: none;
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    /* ================ HEADER ==================== */
+    
+    .header {
+        height: 76px;
+        padding: 0 5%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header .logo img {
+        width: 105px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+    }
+
+    .menu-desktop a {
+        position: relative;
+        color: #d6d6d6;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: 0.25s ease;
+    }
+
+    .menu-desktop a:hover {
+        color:var(--verde);
+    }
+
+    .menu-desktop a::after {
+        content:"";
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        width: 0;
+        height: 2px;
+        background: var(--verde);
+        transition: width 0.25s ease;
+    }
+
+    .menu-desktop a:hover::after {
+        width: 100%;
+    }
+
+
+    .menu-mobile,
+    .menu-overlay {
+        display: none;
+    }
+    /* =============== HERO ======================== */
+
+    .hero {
+        height: 580px;
+        padding: 0 8%;
+        align-items: center;
+        background-position: center;
+    }
+
+    .hero-conteudo {
+        max-width: 380px;
+        width: 380px;
+        transform: none;
+        margin-left: 2%;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1.05;
+    }
+
+    .hero-conteudo p {
+        font-size: 1rem;
+    }
+
+    /* ===============================================
+                CONTAINER DESKTOP
+    ================================================= */
+    
+    .categorias-rapidas,
+    .novidades,
+    .produtos-destaque,
+    .lojas,
+    .cta-whatsapp {
+        width: calc(100% - 80px);
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .categorias-rapidas {
+        grid-template-columns: repeat(4,1fr);
+        gap: 12px;
+        padding: 16px 0 0;
+        max-width: 1200px;
+        margin: 16px auto 0;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+    }
+
+    .categoria-card {
+        height: 110px;
+        min-height: 105px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .categoria-card i {
+        font-size: 1.6rem;
+    }
+
+
+    .novidades {
+        width:calc(100% - 80px) ;
+        max-width: 1200px;
+        margin: 70px auto 0;
+        padding: 0;
+    }
+
+    .titulo-sessao {
+        margin-bottom: 18px;
+    }
+
+    .titulo-sessao h2 {
+        font-size: 1.15rem;
+    }
+
+    .titulo-sessao > a {
+        font-size: 0.7rem;
+    }
+
+    .novidades-card {
+        height: 300px;
+        min-height: 280px;
+        border-radius: 12px;
+    }
+
+    .novidades-conteudo {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 36px;
+    }
+
+    .novidades-tag {
+        margin-bottom: 14px;
+        padding: 5px 9px;
+        font-size: 0.62rem;
+    }
+
+    .novidades-conteudo h3 {
+        max-width: 320px;
+        margin-bottom: 12px;
+        font-size: 1.7rem;
+        line-height: 1.1;
+    }
+
+    .novidades-conteudo p {
+        max-width: 340px;
+        margin-bottom: 18px;
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .novidades-link {
+        font-size: 0.75rem;
+    }
+
+
+
+    .novidades-indicadores {
+        margin-top: 14px;
+    }
+
+    .novidades-imagem {
+        width: 65%;
+        height: 100%;
+    }
+
+    .novidades-imagem img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 65% center;
+    }
+
+    .novidades-card::after {
+        background: linear-gradient(
+            90deg,
+            #111312 0%,
+            rgba(17,19,18,0.95) 32%,
+            rgba(17,19,18,0.65) 47%,
+            rgba(17,19,18,0.15) 68%,
+            transparent 100%
+        );
+    }
+
+
+    /* ===============================================
+        PRODUTOS - DESKTOP
+    ================================================ */ 
+
+    .produtos-destaque {
+        width: calc(100% - 80px);
+        max-width: 1200px;
+        margin: 70px auto 0;
+        padding: 0;
+    }
+
+    .produtos-carrossel {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 20px;
+        overflow: visible;
+        padding-bottom: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    .produto-card {
+        flex: 0 1 280px;
+        width: 280px;
+        padding: 22px;
+        border-radius: 16px;
+        transition:
+        transform .25s ease,
+        box-shadow +25s ease;
+    }
+
+    .produto-card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+        0 18px 40px rgba(0,0,0,.45),
+        0 0 18px rgba(125,255,77,.12);
+    }
+
+    .produto-imagem {
+        height: 180px;
+        margin-bottom: 18px;
+    }
+
+    .produto-card h3 {
+        font-size: 1.05rem;
+    }
+
+    .produto-especificacao {
+        font-size: .82rem;
+    }
+
+    .produto-preco {
+        font-size: 1.5rem;
+    }
+
+    .produto-parcelamento {
+        font-size: .78rem;
+    }
+
+    .produtos-detalhes {
+        min-height: 46px;
+        font-size: .78rem;
+    }
+
+    /* ===============================================
+            LOJAS - DESKTOP
+    ================================================= */
+
+    .lojas {
+        width: calc(100% - 80px);
+        max-width: 1200px;
+        margin: 70px auto 0;
+        padding: 0;
+    }
+
+    .lojas-carrossel {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        overflow: visible;
+    }
+
+    .loja-card {
+        flex: 0 1 360px;
+        width: 360px;
+        min-height: 150px;
+        grid-template-columns: 125px 1fr;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .loja-imagem {
+        width: 125px;
+    }
+
+    .loja-conteudo {
+        padding-left: 18px;
+        padding-right: 28px;
+    }
+
+    .loja-conteudo h3 {
+        font-size: 1rem;
+    }
+
+    .loja-endereco {
+        font-size: 0.72rem;
+    }
+
+    .loja-status,
+    .loja-horario {
+        font-size: 0.7rem;
+    }
+
+    /* ==============================================
+                CTA WHATSAPP - DESKTOP
+    =============================================== */
+    .cta-whatsapp {
+        width: calc(100% - 80px);
+        max-width: 1200px;
+        margin: 70px auto 50px;
+        padding: 18px 22px;
+        border-radius: 12px;
+    }
+
+    .cta-whatsapp > i {
+        font-size: 2rem;
+    }
+
+    .cta-whatsapp-texto h3 {
+        font-size: 0.95rem;
+    }
+
+    .cta-whatsapp-texto p {
+        font-size: 0.8rem;
+    }
+
+    .cta-whatsapp-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    /* Telas grandes */
+   .produtos-carrossel {
+    grid-template-columns: repeat(4,1f);
+   }
+
+   .produto-card {
+    flex: 1 1 250px;
+    max-width: 285px;
+   }
+
+   .loja-card {
+    flex-basis: 370px;
+   }
+}

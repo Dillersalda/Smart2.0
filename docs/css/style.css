@@ -14,6 +14,10 @@
     --branco: #ffffff;
 }
 
+.menu-desktop {
+    display: none;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -443,6 +447,8 @@ body {
     font-size: 0.55rem;
     font-weight: 700;
     text-transform: uppercase;
+    align-self: flex-start;
+    width: auto;
 }
 
 .novidades-conteudo h3{
@@ -506,7 +512,7 @@ body {
     transition:
     width 0.3s ease,
     background 0.3s ease,
-    transform 0.3 ease;
+    transform 0.3s ease;
 }
 
 .indicador.ativo {
@@ -617,7 +623,7 @@ body {
     font-weight: 700;
     margin-bottom: 6px;
 }
-.produtos-especificacao {
+.produto-especificacao {
     color: #aaa;
     font-size: 0.78rem;
     margin-bottom:12px;
