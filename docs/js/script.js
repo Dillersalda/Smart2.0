@@ -309,60 +309,52 @@ fetch("data/produtos.json")
 // Barra Inferior
 // ====================================================================================
 
-const secoes = document.querySelectorAll(
-    "#inicio, #produtos, #lojas, #suporte"
-);
-
 const navItens = document.querySelectorAll(".nav-item");
 
 function atualizarMenuAtivo() {
 
     const produtos = document.querySelector("#produtos");
     const lojas = document.querySelector("#lojas");
-    const suporte = document.querySelector("#suporte");
 
     const alturaTela = window.innerHeight;
 
     const produtosTopo =
-    produtos.getBoundingClientRect().top;
+        produtos.getBoundingClientRect().top;
 
     const lojasTopo =
-    lojas.getBoundingClientRect().top;
-
-    const suporteTopo =
-    suporte.getBoundingClientRect().top;
+        lojas.getBoundingClientRect().top;
 
     let secaoAtual = "inicio";
 
+
     // Produtos
-    if (produtosTopo <= alturaTela * 0.55) {
+    if (produtosTopo <= alturaTela * 0.65) {
         secaoAtual = "produtos";
     }
 
-    // Lojas
 
-    if (lojasTopo <= alturaTela * 0.55) {
+    // Lojas
+    if (lojasTopo <= alturaTela * 0.80) {
         secaoAtual = "lojas";
     }
 
-    // Suporte
-    if (suporteTopo <= alturaTela * 0.85) {
-        secaoAtual = "suporte";
-    }
 
     navItens.forEach(item => {
         item.classList.remove("ativo");
     });
 
+
     const itemAtivo = document.querySelector(
-        `.nav-item[href="#${secaoAtual}"]`)
-}
+        `.nav-item[href="#${secaoAtual}"]`
+    );
+
 
     if (itemAtivo) {
         itemAtivo.classList.add("ativo");
     }
+}
 
-    window.addEventListener("scroll",atualizarMenuAtivo);
 
-    atualizarMenuAtivo();
+window.addEventListener("scroll", atualizarMenuAtivo);
 
+atualizarMenuAtivo();
