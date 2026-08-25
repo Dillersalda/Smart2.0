@@ -1,5 +1,72 @@
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
     /* Tablets */
+    .header {
+        padding: 0 32px;
+    }
+
+    .hero {
+        height: 560px;
+        padding: 0 48px;
+        background-position: 62% center;
+    }
+
+    .hero-conteudo {
+        width: 320px;
+        max-width: 320px;
+        transform: none;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-conteudo p {
+        font-size: 0.9rem;
+    }
+
+    .categorias-rapidas,
+    .novidades,
+    .produtos-destaque,
+    .lojas,
+    .cta-whatsapp {
+        width: calc(100% - 48px);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .categorias-rapidas {
+        gap: 10px;
+    }
+
+    .categoria-card {
+        min-height: 100px;
+    }
+
+    .novidades-conteudo {
+        width: 48%;
+        padding: 24px;
+    }
+
+    .novidades-imagem {
+        width: 62%;
+    }
+
+    .produtos-carrossel {
+        gap: 16px;
+    }
+
+    .produto-card {
+        flex: 0 0 46%;
+    }
+
+    .loja-card {
+        flex: 0 0 70%;
+    }
+
+    .cta-whatsapp {
+        margin-bottom: 40px;
+        margin-top: 50px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -383,16 +450,16 @@
     .cta-whatsapp:active {
         transform: scale(0.98);
     }
-}
-
-.modal-loja-item:hover {
+    .modal-loja-item:hover {
     transform: translateX(4px);
     background: rgba(125,255,77,0.055);
     border-color: rgba(125,255,77,0.28);
-}
+    }
 
-.modal-loja-item:hover > i:last-child {
+    .modal-loja-item:hover > i:last-child {
     transform: translateX(3px);
+    }
+
 }
 
 
