@@ -964,9 +964,11 @@ body {
     position: absolute;
     inset: 0;
 
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.72);
     backdrop-filter: blur(5px);
 }
+
+/* Janela */
 
 .modal-lojas-conteudo {
     position: relative;
@@ -996,13 +998,24 @@ body {
 
 .modal-lojas-fechar {
     position: absolute;
-    top:16px;
+    top: 18px;
     right: 18px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50%;
     color: var(--branco);
-    font-size: 1.2rem;
     cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.modal-lojas-fechar:hover {
+    color: var(--verde);
+    border-color: rgba(125,255,77,0.30);
 }
 
 .modal-lojas-conteudo h2 {
@@ -1020,11 +1033,9 @@ body {
 }
 
 .modal-lojas-lista {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
 }
 
 .modal-loja-item {
@@ -1071,6 +1082,7 @@ body {
 }
 
 .modal-loja-item strong {
+    color: var(--branco);
     font-size: 0.84rem;
     font-weight: 700;
 }
