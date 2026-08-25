@@ -6,7 +6,7 @@
         "preco":"R$:1.890,00",
         "parcelas":"18",
         "valorParcela": "R$:126,15",
-        "imagem":"assets/images/note15-produtos.png",
+        "imagem":"assets/images/note15-produtos.webp",
         "oferta":"true"
     },
     {
@@ -16,7 +16,7 @@
         "preco":"R$:1.980,00",
         "parcelas":"18",
         "valorParcela": "R$:132,16",
-        "imagem":"assets/images/pocox8-produtos.png",
+        "imagem":"assets/images/pocox8-produtos.webp",
         "oferta":"true"
     },
     {
@@ -26,7 +26,7 @@
         "preco":"R$:1.690,00",
         "parcelas":"18",
         "valorParcela":"R$:112,80",
-        "imagem":"assets/images/galaxya17-produtos.png",
+        "imagem":"assets/images/galaxya17-produtos.webp",
         "oferta":"true"
     }
 ]
