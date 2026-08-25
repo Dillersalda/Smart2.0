@@ -295,6 +295,16 @@
     }
 
 
+    .categoria-card:hover {
+        transform:translateY(-4px);
+        border-color: rgba(125,255,77,0.28);
+        background: rgba(125,255,77,0.05);
+    }
+
+    .categoria-card:hover i {
+        transform: scale(1.08);
+    }
+
     /* ===============================================
         PRODUTOS - DESKTOP
     ================================================ */ 
