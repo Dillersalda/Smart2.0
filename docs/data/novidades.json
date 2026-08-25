@@ -3,7 +3,7 @@
         "tag": "Lançamento",
         "titulo": "Nova Scooter X11 2026",
         "descricao": "Mais potência, autonomia e design futurista",
-        "imagem": "assets/images/X11-novidades.png",
+        "imagem": "assets/images/X11-novidades.webp",
         "alt": "Scooter X11 2026"
     },
 
@@ -11,7 +11,7 @@
        "tag": "Smartphones",
         "titulo": "Novos Smartphones disponíveis",
         "descricao": "Tecnologia e desempenho para todos os perfis.",
-        "imagem": "assets/images/celular-card.png",
+        "imagem": "assets/images/celular-card.webp",
         "alt": "Aparelhos Androids" 
     },
 
@@ -19,7 +19,7 @@
         "tag": "Assistência",
         "titulo": "Assistência Técnica especializada",
         "descricao": "Seu aparelho nas mãos de quem entende de tecnologia.",
-        "imagem": "assets/images/assistencia.png",
+        "imagem": "assets/images/assistencia.webp",
         "alt": "Assistencia Tecnica"
     },
 
@@ -27,7 +27,7 @@
         "tag": "Iphones",
         "titulo": "Aparelhos Semi-novos e Lacrados",
         "descricao": "Seu Iphone novo com até 1 ano de garantia!",
-        "imagem": "assets/images/iphones.png",
+        "imagem": "assets/images/iphones.webp",
         "alt": "Iphones Lacrados e semi novos"
     }
 ]
