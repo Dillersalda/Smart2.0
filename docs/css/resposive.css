@@ -147,6 +147,10 @@
         background-position: center;
     }
 
+    .hero-bg {
+        object-position: center;
+    }
+
     .hero-conteudo {
         max-width: 380px;
         width: 380px;
