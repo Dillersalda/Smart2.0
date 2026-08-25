@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartblin 2.0</title>
+    <link rel="stylesheet" href="css/produtos.css">
+    <link rel="stylesheet" href="css/produtos-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="assets/images/logo-smartblin.webp" alt="Smartblin">
+    </a>
+
+    <nav class="menu-desktop">
+        <a href="index.html">Início</a>
+        <a href="produtos.html" class="ativo">Produtos</a>
+        <a href="index.html#lojas">lojas</a>
+        <a href="index.html#suporte">Suporte</a>
+    </nav>
+
+
+
+    <nav class="menu-mobile">
+        <div class="menu-topo">
+            <img src="assets/images/logo-smartblin.webp" alt="Smartblin">
+
+            <button class="fechar-menu" aria-label="fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+       <div class="menu-divisor"></div>
+        <div class="menu-links">
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Inicio
+            </a>
+            <a href="produtos.html" class="ativo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Produtos
+            </a>
+            <a href="index.html#lojas">
+                <i class="fa-solid fa-location-dot"></i>
+                Lojas
+            </a>
+            <a href="index.html#suporte">
+                <i class="fa-solid fa-headphones"></i>
+                Suporte
+            </a>
+        </div>
+    </nav>
+
+    <div class="menu-overlay"></div>
+
+    <button class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+<main>
+    <section class="catalogo-hero">
+        <img
+        src="assets/images/hero-produtos.webp"
+        alt=""
+        class="catalogo-hero-bg"
+        fetchpriority="high"
+        decoding="async">
+        <div class="catalogo-hero-overlay"></div>
+        <div class="catalogo-hero-conteudo">
+            <span class="catalogo-tag">
+                Catálogo Smartblin
+            </span>
+            <h1>
+                Encontre o <span>produto ideal</span>
+            </h1>
+            <p>
+                Smartphones, Scooters e Acessórios<br>
+                com os melhores preços
+            </p>
+            <div class="catalogo-busca">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                type="search"
+                id="buscar-produto"
+                placeholder="Buscar produto..."
+                aria-label="Buscar produto">
+            </div>
+        </div>
+    </section>
+    <section class="catalogo-categorias">
+        <div class="catalogo-titulo">
+            <h2>Categorias</h2>
+            <button class="categorias-limpar">
+                Ver todas
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+        </div>
+       
+        <div class="categorias-lista">
+            <button class="categoria-filtro" data-categoria="scooters">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span>Scooters</span>
+            </button>
+            <button class="categoria-filtro" data-categoria="Smartphones">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span>Smartphones</span>
+            </button>
+            <button class="categoria-filtro" data-categoria="acessorios">
+                <i class="fa-solid fa-headphones"></i>
+                <span>Acessórios</span>
+            </button>
+            <button class="categoria-filtro" data-categoria="assistencia">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <span>Assistência</span>
+            </button>
+        </div>
+    </section>
+</main>
+<script src="js/produtos.js"></script>
+</body>
+</html>

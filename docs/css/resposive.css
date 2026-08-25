@@ -395,8 +395,8 @@
         width: 360px;
         min-height: 150px;
         grid-template-columns: 125px 1fr;
-        padding: 12px;
-        border-radius: 12px;
+        flex: 0 0 48%;
+       
     }
 
     .loja-imagem {
