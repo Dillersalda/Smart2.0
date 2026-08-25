@@ -865,6 +865,7 @@ body {
     align-items: center;
     justify-content: center;
 
+    background: transparent;
     border: 1px solid var(--verde);
     border-radius: 50%;
 
@@ -933,4 +934,148 @@ body {
     right: 14px;
     color: var(--verde);
     font-size: 1.2rem;
+}
+
+/* ======================================================
+                Modal Lojas
+======================================================= */
+
+.modal-lojas {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2000;
+    transition: 0.3s ease;
+}
+
+.modal-lojas.ativo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-lojas-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(5px);
+}
+
+.modal-lojas-conteudo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 430px;
+    padding: 26px;
+    background: linear-gradient(
+        180deg,
+        #171a18 0%,
+        #101211 100%
+    );
+    border-top: 1px solid rgba(125,255,77,0.20);
+    border-radius: 18px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0, 0.55),
+    0 0 30px rgba(125,255,77,0.06);
+
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.3s ease;
+}
+
+.modal-lojas.ativo .modal-lojas-conteudo {
+    transform: translateY(0) scale(1);
+}
+
+.modal-lojas-fechar {
+    position: absolute;
+    top:16px;
+    right: 18px;
+    background: transparent;
+    border: none;
+    color: var(--branco);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.modal-lojas-conteudo h2 {
+    margin-bottom: 6px;
+    color: var(--branco);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.modal-lojas-conteudo > p {
+    margin-bottom: 22px;
+    color: #a9ada9;
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.modal-lojas-lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-loja-item {
+    appearance: none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 38px 1fr 30px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.025);
+    color: var(--branco);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: 
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.modal-loja-item > i:first-child {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(125,255,77,0.10);
+    border: 1px solid rgba(125,255,77,0.18);
+    border-radius: 50%;
+    color: var(--verde);
+}
+.modal-loja-item > i:last-child {
+    color: var(--verde);
+    transition: transform 0.2s ease;
+}
+
+.modal-loja-item div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-loja-item strong {
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.modal-loja-item span {
+    color:#8f948f;
+    font-size: 0.68rem;
 }

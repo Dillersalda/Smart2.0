@@ -358,3 +358,65 @@ function atualizarMenuAtivo() {
 window.addEventListener("scroll", atualizarMenuAtivo);
 
 atualizarMenuAtivo();
+
+const listaModalLojas =
+document.querySelector(".modal-lojas-lista");
+
+    fetch("data/lojas.json")
+    .then(resposta => resposta.json())
+    .then(lojas => {
+
+        lojas.forEach(loja => {
+
+            const botao = document.createElement("button");
+
+            botao.classList.add("modal-loja-item");
+
+            botao.innerHTML = `
+            <i class="fa-solid fa-location-dot"></i>
+            
+            <div>
+                <strong>${loja.nome}</strong>
+                <span>Atendimento via Whatsapp</span>
+            </div>
+            
+            <i class="fa-solid fa-chevron-right"></i>
+            `;
+
+            botao.addEventListener("click", () => {
+
+                const mensagem =
+                "Olá! Vim pelo site da Smartblin e gostaria de atendimento.";
+
+                const urlWhatsapp =
+                `https://wa.me/${loja.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+                modalLojas.classList.remove("ativo");
+
+                window.open(urlWhatsapp, "_blank");
+            });
+
+            listaModalLojas.appendChild(botao);
+        });
+    });
+
+    const btnAbrirWhatsapp =
+    document.querySelector("#abrir-whatsapp");
+    const modalLojas =
+    document.querySelector("#modal-lojas");
+    const fecharModalLojas =
+    document.querySelector(".modal-lojas-fechar");
+    const overlayModalLojas =
+    document.querySelector(".modal-lojas-overlay");
+
+    btnAbrirWhatsapp.addEventListener("click", () => {
+        modalLojas.classList.add("ativo");
+    });
+
+    fecharModalLojas.addEventListener("click", () => {
+        modalLojas.classList.remove("ativo");
+    });
+
+    overlayModalLojas.addEventListener("click", () => {
+        modalLojas.classList.remove("ativo");
+    });

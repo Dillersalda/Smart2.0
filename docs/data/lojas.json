@@ -4,20 +4,23 @@
         "endereco": "R. Santa Elisa, 134 - Lj B - Piabetá, Magé - RJ, 25931-762",
         "abertura": "09:00",
         "fechamento": "19:00",
-        "imagem": "assets/images/loja-piabeta.png"
+        "imagem": "assets/images/loja-piabeta.png",
+        "whatsapp": "5521965246452"
     },
     {
         "nome": "SmartBlin Magé",
         "endereco": "Passeio Público Dr. Siqueira, 354 - Vila Esperanca, Magé - RJ, 25903-587 (Antiga Drogaria Mais Barato)",
         "abertura": "09:00",
         "fechamento": "17:30",
-        "imagem": "assets/images/loja-mage.png"
+        "imagem": "assets/images/loja-mage.png",
+        "whatsapp": "5521990759775"
     },
     {
         "nome": "SmartBlin Santa Cruz da Serra",
         "endereco": "Av. Automóvel Clube, 42 - Vila Santa Cruz, Duque de Caxias - RJ, 25260-220",
         "abertura": "09:00",
         "fechamento": "18:30",
-        "imagem": "assets/images/loja-santa-cruz.png"
+        "imagem": "assets/images/loja-santa-cruz.png",
+        "whatsapp": "5521959069386"
     }
 ]

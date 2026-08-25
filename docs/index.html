@@ -179,12 +179,34 @@
                 <p>Fale com a gente no Whatsapp</p>
             </div>
 
-            <a href="#" class="cta-whatsapp-btn" aria-label="Falar no Whatsapp">
+            <button
+                class="cta-whatsapp-btn"
+                id="abrir-whatsapp"
+               aria-label="Escolher loja para falar no Whatsapp">
                 <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            </button>
+    
+            
         </section>
     </main>
-   
+    
+    <div class="modal-lojas" id="modal-lojas">
+        <div class="modal-lojas-overlay"></div>
+
+        <div class="modal-lojas-conteudo">
+
+            <button class="modal-lojas-fechar" aria-label="Fechar">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h2>Escolha sua loja</h2>
+
+            <p>
+                Selecione a unidade para falar diretamente com nossa equipe.
+            </p>
+                    <div class="modal-lojas-lista"></div>
+    </div>
+        </div>
 
     <nav class="nav-inferior">
         <a href="#inicio" class="nav-item ativo">

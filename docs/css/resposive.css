@@ -347,26 +347,52 @@
         width: calc(100% - 80px);
         max-width: 1200px;
         margin: 70px auto 50px;
-        padding: 18px 22px;
-        border-radius: 12px;
+        padding: 20px 24px;
+        gap: 18px;
+        border-radius: 14px;
     }
 
     .cta-whatsapp > i {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .cta-whatsapp-texto h3 {
-        font-size: 0.95rem;
+        font-size: 1rem;
     }
 
     .cta-whatsapp-texto p {
-        font-size: 0.8rem;
+        font-size: 0.82rem;
+        margin-top: 4px;
     }
 
     .cta-whatsapp-btn {
-        width: 40px;
-        height: 40px;
+        width: 42px;
+        height: 42px;
+        font-size: 1rem;
     }
+
+    .cta-whatsapp:hover {
+        transform: translateY(-3px);
+        background: linear-gradient(
+            90deg,
+            rgba(89,255,89,0.12),
+            rgba(17,19,18,0.98)
+        );
+    }
+
+    .cta-whatsapp:active {
+        transform: scale(0.98);
+    }
+}
+
+.modal-loja-item:hover {
+    transform: translateX(4px);
+    background: rgba(125,255,77,0.055);
+    border-color: rgba(125,255,77,0.28);
+}
+
+.modal-loja-item:hover > i:last-child {
+    transform: translateX(3px);
 }
 
 
