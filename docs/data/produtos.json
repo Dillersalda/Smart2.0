@@ -53,15 +53,41 @@
     },
     {
         "id": 5,
-        "nome":"Redmi 15C 256GB",
+        "nome":"Realme C85 256GB",
         "categoria":"smartphones",
-        "marca":"Xiaomi",
+        "marca":"Realme",
         "especificacao":"256GB de Armazenamento / 8GB de Ram",
         "preco":1550,
         "parcelas":18,
         "valorParcela":176.50,
-        "imagem":"assets/images/X11-novidades.webp",
-        "oferta": false,
+        "imagem":"assets/images/Realme-C85.webp",
+        "oferta": true,
+        "destaque":true
+    },
+    {
+        "id": 6,
+        "nome":"Scooter G15",
+        "categoria":"scooters",
+        "marca":"Garra",
+        "especificacao":"Scooter Eletrica / Bateria 1000W",
+        "preco":8900,
+        "parcelas":18,
+        "valorParcela":556.97,
+        "imagem":"assets/images/hero-smartblin.webp",
+        "oferta": true,
+        "destaque":false
+    },
+    {
+        "id": 7,
+        "nome":"Realme C75",
+        "categoria":"smartphones",
+        "marca":"Realme",
+        "especificacao":"256GB de Armazenamento / 8GB de Ram",
+        "preco":1800,
+        "parcelas":18,
+        "valorParcela":312.86,
+        "imagem":"assets/images/realme-c75.webp",
+        "oferta": true,
         "destaque":false
     }
 ]
