@@ -168,7 +168,9 @@ fetch("data/produtos.json")
 
         console.log("produtos Carregador:", produtos);
 
-        produtos.forEach(produto => {
+        const destaques = produtos.filter(produto => produto.destaque);
+
+        destaques.forEach(produto => {
             
             const card = document.createElement("article");
 

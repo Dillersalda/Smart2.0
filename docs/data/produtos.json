@@ -1,32 +1,54 @@
 [
     {
+        "id": 1,
         "nome":"Redmi Note 15 Pro",
-        "categoria":"Smartphones Xiaomi",
+        "categoria":"smartphones",
+        "marca": "Xiaomi",
         "especificacao":"256GB de Armazenamento / 8GB de Ram",
-        "preco":"R$:1.890,00",
+        "preco":1890,
         "parcelas":"18",
-        "valorParcela": "R$:126,15",
+        "valorParcela": 126.15,
         "imagem":"assets/images/note15-produtos.webp",
-        "oferta":"true"
+        "oferta":true,
+        "destaque":true
     },
     {
+        "id": 2,
         "nome":"Poco x8 Pro 5G",
-        "categoria":"Smartphones Xiaomi",
+        "categoria":"smartphones",
+        "marca":"Xiaomi",
         "especificacao":"512GB de Armazenamento / 12GB de Ram",
-        "preco":"R$:1.980,00",
-        "parcelas":"18",
-        "valorParcela": "R$:132,16",
+        "preco":1980,
+        "parcelas":18,
+        "valorParcela": 132.16,
         "imagem":"assets/images/pocox8-produtos.webp",
-        "oferta":"true"
+        "oferta": true,
+        "destaque": true
     },
     {
+        "id": 3,
         "nome":"Samsung A17",
-        "categoria":"Smartphones Samsung",
+        "categoria":"smartphones",
+        "marca":"Samsung",
         "especificacao":"256GB de Armazenamento / 8GB de Ram",
-        "preco":"R$:1.690,00",
-        "parcelas":"18",
-        "valorParcela":"R$:112,80",
+        "preco":1690,
+        "parcelas":18,
+        "valorParcela":112.80,
         "imagem":"assets/images/galaxya17-produtos.webp",
-        "oferta":"true"
+        "oferta": true,
+        "destaque":true
+    },
+    {
+        "id": 4,
+        "nome":"Scooter X11",
+        "categoria":"scooters",
+        "marca":"Garra",
+        "especificacao":"Scooter Eletrica / Bateria 1000W",
+        "preco":7700,
+        "parcelas":18,
+        "valorParcela":375.60,
+        "imagem":"assets/images/x11-novidades.webp",
+        "oferta": false,
+        "destaque":false
     }
 ]

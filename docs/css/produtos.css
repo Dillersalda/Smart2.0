@@ -555,3 +555,174 @@ body {
     transform: translateX(18px);
     background: var(--preto);
 }
+
+/* =====================================================================================
+                TODOS OS PRODUTOS
+======================================================================================= */
+
+.todos-produtos {
+    padding:24px 20px 32px;
+    background: var(--preto);
+}
+
+.produtos-topo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.produtos-topo h2 {
+    color: var(--branco);
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.produtos-topo p {
+    margin-top: 4px;
+    color: #999;
+    font-size: 0.68rem;
+}
+
+#ordenar-produtos {
+    height: 36px;
+    padding: 0 10px;
+    background: #111312;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    color: var(--branco);
+    font-family: inherit;
+    font-size: 0.65rem;
+    outline: none;
+}
+
+.catalogo-grade {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.carregar-mais {
+    width: 100%;
+    height: 44px;
+    margin-top: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid rgba(125,255,77,0.45);
+    border-radius: 9px;
+    color:var(--verde);
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* =====================================================================================
+                    Cards Produtos
+====================================================================================== */
+
+.catalogo-produto-card {
+    position: relative;
+    min-width: 0;
+    padding: 10px;
+    background: linear-gradient(
+        180deg,
+        #171918 0%,
+        #101211 100%
+    );
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.catalogo-produtos-imagem {
+    width:100%;
+    height:140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+}
+
+.catalogo-produtos-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.catalogo-produto-card h3 {
+    margin-bottom: 5px;
+    color: var(--branco);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.catalogo-especificacao {
+    min-height: 30px;
+    margin-bottom: 10px;
+    color: #aaa;
+    font-size: 0.62rem;
+    line-height: 1.4;
+}
+
+.catalogo-preco {
+    display: block;
+    color: var(--verde);
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
+.catalogo-parcelamento {
+    margin: 6px 0 12px;
+    color: #aaa;
+    font-size: 0.58rem;
+    line-height: 1.4;
+
+}
+
+.catalogo-oferta {
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    z-index: 2;
+    padding: 4px 7px;
+    background: var(--verde);
+    border-radius: 4px;
+    color: var(--preto);
+    font-size: 0.52rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.catalogo-favorito {
+    position: absolute;
+    top: 9px;
+    right:9px;
+    z-index: 2;
+    background: transparent;
+    border: none;
+    color: var(--branco);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.catalogo-interesse {
+    width: 100%;
+    height: 38px;
+    background: var(--verde);
+    border: none;
+    border-radius: 7px;
+    color: var(--preto);
+    font-family: inherit;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+}

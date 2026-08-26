@@ -164,6 +164,34 @@
                 </label>
             </div>
     </section>
+
+    <!--       Todos os Produtos         -->
+
+    <section class="todos-produtos">
+        <div class="produtos-topo">
+
+            <div>
+                <h2>Todos os Produtos</h2>
+                <p id="quantidade-produtos">0 produtos encontrados</p>
+            </div>
+
+            <select id="ordenar-produtos">
+                <option value="">Ordenar por</option>
+                <option value="menor-preco">Menor preço</option>
+                <option value="maior-preco">Maior preço</option>
+                <option value="nome">Nome</option>
+            </select>
+        </div>
+
+        <div class="catalogo-grade" id="catalogo-grade">
+
+        </div>
+
+        <button class="carregar-mais">
+            Carregar mais produtos
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+    </section>
 </main>
 <script src="js/produtos.js"></script>
 </body>
