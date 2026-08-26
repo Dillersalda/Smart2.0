@@ -4,6 +4,29 @@ const overlay = document.querySelector(".menu-overlay");
 const fecharMenu = document.querySelector(".fechar-menu");
 const linksMenu = document.querySelectorAll(".menu-links a");
 
+const categoriasFiltro =
+document.querySelectorAll(".categoria-filtro");
+
+const btnVerTodas =
+document.querySelector(".categorias-limpar");
+
+const catalogoGrade =
+document.querySelector("#catalogo-grade");
+
+const quantidadeProdutos =
+document.querySelector("#quantidade-produtos");
+
+const filtroCategoria =
+document.querySelector("#filtro-categoria");
+
+
+let todosProdutos = [];
+let produtosFiltrados = [];
+
+
+// ====================================================================================
+// MENU MOBILE
+// ====================================================================================
 
 btnMenu.addEventListener("click", () => {
     menuMobile.classList.toggle("ativo");
@@ -21,6 +44,7 @@ overlay.addEventListener("click", () => {
 });
 
 linksMenu.forEach(link => {
+
     link.addEventListener("click", () => {
 
         linksMenu.forEach(item => {
@@ -35,85 +59,193 @@ linksMenu.forEach(link => {
 
 });
 
-const categoriasFiltro =
-document.querySelectorAll(".categoria-filtro");
-const btnVerTodas =
-document.querySelector(".categorias-limpar");
 
-    categoriasFiltro.forEach(botao => {
+// ====================================================================================
+// CARREGAR PRODUTOS
+// ====================================================================================
 
-        botao.addEventListener("click", () => {
-            categoriasFiltro.forEach(item =>{
-                item.classList.remove("ativo");
+fetch("data/produtos.json")
+    .then(resposta => resposta.json())
+    .then(produtos => {
+
+        todosProdutos = produtos;
+        produtosFiltrados = [...produtos];
+
+        renderizarProdutos(produtosFiltrados);
+    })
+
+    .catch(erro => {
+        console.error("Erro ao carregar produtos:", erro);
+    });
+
+
+// ====================================================================================
+// RENDERIZAR PRODUTOS
+// ====================================================================================
+
+function renderizarProdutos(produtos) {
+
+    catalogoGrade.innerHTML = "";
+
+    quantidadeProdutos.textContent =
+        `${produtos.length} produtos encontrados`;
+
+    produtos.forEach(produto => {
+
+        const card =
+        document.createElement("article");
+
+        card.classList.add("catalogo-produto-card");
+
+        card.innerHTML = `
+            ${produto.oferta
+                ? `<span class="catalogo-oferta">Oferta</span>`
+                : ""
+            }
+
+            <button
+                class="catalogo-favorito"
+                aria-label="Favoritar ${produto.nome}"
+            >
+                <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <div class="catalogo-produto-imagem">
+                <img
+                    src="${produto.imagem}"
+                    alt="${produto.nome}"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </div>
+
+            <h3>${produto.nome}</h3>
+
+            <p class="catalogo-especificacao">
+                ${produto.especificacao}
+            </p>
+
+            <strong class="catalogo-preco">
+                ${formatarPreco(produto.preco)}
+            </strong>
+
+            <p class="catalogo-parcelamento">
+                ou até ${produto.parcelas}x de
+                ${formatarPreco(produto.valorParcela)}
+            </p>
+
+            <button
+                class="catalogo-interesse"
+                data-id="${produto.id}"
+            >
+                Tenho interesse
+            </button>
+        `;
+
+        catalogoGrade.appendChild(card);
+    });
+}
+
+
+// ====================================================================================
+// FORMATAR PREÇO
+// ====================================================================================
+
+function formatarPreco(valor) {
+
+    return valor.toLocaleString("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    });
+
+}
+
+
+// ====================================================================================
+// CATEGORIAS RÁPIDAS
+// ====================================================================================
+
+categoriasFiltro.forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+        categoriasFiltro.forEach(item => {
+            item.classList.remove("ativo");
+        });
+
+        botao.classList.add("ativo");
+
+        const categoriaSelecionada =
+            botao.dataset.categoria;
+
+        produtosFiltrados =
+            todosProdutos.filter(produto => {
+                return produto.categoria === categoriaSelecionada;
             });
 
-                botao.classList.add("ativo");
+        filtroCategoria.value =
+            categoriaSelecionada;
 
-                console.log("Categoria selecionada",botao.dataset.categoria);
-        });
+        renderizarProdutos(produtosFiltrados);
     });
+
+});
+
+
+// ====================================================================================
+// VER TODAS
+// ====================================================================================
 
 btnVerTodas.addEventListener("click", () => {
 
     categoriasFiltro.forEach(item => {
         item.classList.remove("ativo");
     });
-    console.log("Todas as categorias");
+
+    filtroCategoria.value = "";
+
+    produtosFiltrados = [...todosProdutos];
+
+    renderizarProdutos(produtosFiltrados);
+
 });
 
+
 // ====================================================================================
-//              CATÁLOGO DE PRODUTOS
+// FILTRO SELECT - CATEGORIA
 // ====================================================================================
 
-    const catalogoGrade =
-    document.querySelector("#catalogo-grade");
-    const quantidadeProdutos =
-    document.querySelector("#quantidade-produtos");
+filtroCategoria.addEventListener("change", () => {
 
-    let todosProdutos = [];
+    const categoriaSelecionada =
+        filtroCategoria.value;
 
-    fetch("data/produtos.json")
-        .then(resposta => resposta.json())
-        .then(produtos => {
-            todosProdutos = produtos;
+    categoriasFiltro.forEach(item => {
+        item.classList.remove("ativo");
+    });
 
-        rendenizarProdutos(todosProdutos);
-        })
+    if (categoriaSelecionada === "") {
 
-        .catch(erro => {
-            console.error("erro ao carregar produtos:", erro);
-        });
+        produtosFiltrados =
+            [...todosProdutos];
 
-    function rendenizarProdutos(produtos) {
-        catalogoGrade.innerHTML = "";
+    } else {
 
-        quantidadeProdutos.textContent = 
-        `${produtos.length} produtos encontrados`;
-        produtos.forEach(produto => {
-            const card =
-            document.createElement("article");
+        produtosFiltrados =
+            todosProdutos.filter(produto => {
+                return produto.categoria === categoriaSelecionada;
+            });
 
-            card.classList.add("catalogo-produto-card");
-            card.innerHTML = `
-                    ${produto.oferta ? `<span class="catalogo-oferta">Oferta</span>`: ""}
-                    <button class="catalogo-favorito" aria-label="favoritar ${produto.nome}">
-                    <i class="fa-regular fa-heart"></i> </button>
-                    
-                    <div class="catalogo-produto-imagem">
-                        <img src="${produto.imagem}" alt="${produto.nome}" loading="lazy" decoding="async">
-                    </div>
-                    <h3>${produto.nome}</h3>
-                    <p class="catalogo-especificacao">${produto.especificacao}</p>
-                    <strong class="catalogo-preco">${formatarPreco(produto.preco)}</strong>
-                    <p class="catalogo-parcelamento"> ou até ${produto.parcelas}x de ${formatarPreco(produto.valorParcela)}</p>
-                    <button class="catalogo-interesse" data-id="${produto.id}"> Tenho interesse </button>`;
-                    
-            catalogoGrade.appendChild(card);
-        });
+        const botaoAtivo =
+            document.querySelector(
+                `.categoria-filtro[data-categoria="${categoriaSelecionada}"]`
+            );
+
+        if (botaoAtivo) {
+            botaoAtivo.classList.add("ativo");
+        }
     }
-    function formatarPreco(valor) {
-        return valor.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
-    }
+
+    renderizarProdutos(produtosFiltrados);
+
+});

@@ -47,7 +47,20 @@
         "preco":7700,
         "parcelas":18,
         "valorParcela":375.60,
-        "imagem":"assets/images/x11-novidades.webp",
+        "imagem":"assets/images/X11-novidades.webp",
+        "oferta": false,
+        "destaque":false
+    },
+    {
+        "id": 5,
+        "nome":"Redmi 15C 256GB",
+        "categoria":"smartphones",
+        "marca":"Xiaomi",
+        "especificacao":"256GB de Armazenamento / 8GB de Ram",
+        "preco":1550,
+        "parcelas":18,
+        "valorParcela":176.50,
+        "imagem":"assets/images/X11-novidades.webp",
         "oferta": false,
         "destaque":false
     }
