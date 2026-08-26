@@ -63,6 +63,7 @@
 
 </header>
 <main>
+    <!--                    Hero            -->
     <section class="catalogo-hero">
         <img
         src="assets/images/hero-produtos.webp"
@@ -92,6 +93,7 @@
             </div>
         </div>
     </section>
+    <!--                                Categorias              -->
     <section class="catalogo-categorias">
         <div class="catalogo-titulo">
             <h2>Categorias</h2>
@@ -119,6 +121,48 @@
                 <span>Assistência</span>
             </button>
         </div>
+    </section>
+        <!--                            Filtros             -->
+
+    <section class="catalogo-filtros">
+            <div class="filtros-topo">
+                <h2>Filtros</h2>
+
+                <button class="filtros-limpar">
+                    Limpar
+                </button>
+            </div>
+
+            <div class="filtros-lista">
+                <div class="filtro-select">
+                <select id="filtro-categoria">
+                    <option value="">Categoria</option>
+                    <option value="smartphones">Smartphones</option>
+                    <option value="scooters">Scooters</option>
+                    <option value="acessorios">Acessórios</option>
+                </select>
+                <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <div class="filtro-select">
+                <select id="filtro-preco">
+                    <option value="">Faixa de preço</option>
+                    <option value="0-500">Até R$:500,00</option>
+                    <option value="500-1500">R$:500,00 até R$:1.500,00</option>
+                    <option value="1500-3000">R$:1.500,00 até R$:3.000,00</option>
+                    <option value="3000+">Acima de R$:3.000,00</option>
+                </select>
+
+                <i class="fa-solid fa-chevron-down"></i>
+                </div>
+
+                <label class="filtro-oferta">
+                   <span>Somente Ofertas</span>
+                    <input type="checkbox" id="filtro-oferta">
+
+                    <span class="filtro-switch"></span>
+                </label>
+            </div>
     </section>
 </main>
 <script src="js/produtos.js"></script>

@@ -35,7 +35,28 @@ linksMenu.forEach(link => {
 
 });
 
-console.log(btnMenu);
-console.log(menuMobile);
-console.log(overlay);
-console.log(fecharMenu);
+const categoriasFiltro =
+document.querySelectorAll(".categoria-filtro");
+const btnVerTodas =
+document.querySelector(".categorias-limpar");
+
+    categoriasFiltro.forEach(botao => {
+
+        botao.addEventListener("click", () => {
+            categoriasFiltro.forEach(item =>{
+                item.classList.remove("ativo");
+            });
+
+                botao.classList.add("ativo");
+
+                console.log("Categoria selecionada",botao.dataset.categoria);
+        });
+    });
+
+btnVerTodas.addEventListener("click", () => {
+
+    categoriasFiltro.forEach(item => {
+        item.classList.remove("ativo");
+    });
+    console.log("Todas as categorias");
+});

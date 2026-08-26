@@ -420,3 +420,138 @@ body {
 .categoria-filtro::active {
     transform: scale(0.96);
 }
+
+/* =============================================================================
+        FILTROS
+============================================================================== */
+
+.catalogo-filtros {
+    padding: 20px;
+    background: var(--preto);
+}
+
+.filtros-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.filtros-topo h2 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.filtros-limpar {
+    background: transparent;
+    border: none;
+    color: var(--verde);
+    font-family: inherit;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.filtros-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filtros-lista select, .filtro-oferta {
+    width:100%;
+    height: 44px;
+    background: #111312;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 9px;
+    color: var(--branco);
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.filtros-lista select {
+    padding: 0 12px;
+    outline: none;
+}
+
+.filtro-select {
+    position: relative;
+    width: 100%;
+}
+
+.filtro-select select {
+    width: 100%;
+    height: 44px;
+    padding: 0 42px 0 12px;
+    background: #111312;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 9px;
+    color: var(--branco);
+    font-family: inherit;
+    font-size: 0.72rem;
+    font-weight: 600;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.filtro-select i {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--branco);
+    font-size: 0.7rem;
+    pointer-events: none;
+}
+
+.filtro-oferta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    background: #111312;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    color: var(--branco);
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.filtro-oferta input {
+    display: none;
+}
+
+.filtro-switch {
+    position: relative;
+    width: 38px;
+    height: 20px;
+    background: #333;
+    border-radius: 20px;
+    transition: 0.25s ease;
+}
+
+.filtro-switch::after {
+    content: "";
+    position: absolute;
+    top:3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    background: var(--branco);
+    border-radius: 50%;
+    transition: 0.25s ease;
+}
+
+.filtro-oferta input:checked + .filtro-switch {
+    background: var(--verde);
+}
+
+.filtro-oferta input:checked + .filtro-switch::after {
+    transform: translateX(18px);
+    background: var(--preto);
+}
