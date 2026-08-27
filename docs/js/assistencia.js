@@ -54,26 +54,6 @@ let indiceAtual = 0;
 
 const selectLoja =
 document.querySelector("#loja-atendimento");
-
-fetch("data/lojas.json")
-    .then(resposta => resposta.json())
-    .then(lojas => {
-        lojas.forEach((loja, indice) => {
-
-            const option =
-            document.createElement("option");
-
-                option.value = indice;
-                option.textContent = loja.regiao;
-
-            selectLoja.appendChild(option);
-        });
-    })
-
-    .catch(erro => {
-        console.error("Erro ao carregar lojas:", erro);
-    });
-
 const formulario =
 document.querySelector("#orcamento-form");
 const nomeCliente =
@@ -103,9 +83,9 @@ fetch ("data/lojas.json")
 
             selectLoja.appendChild(option);
         });
-        });
-        .catch(erro => {
-            console.log("erro ao carregar lojas:", erro);
+        })
+         .catch(erro => {
+            console.error("erro ao carregar lojas:", erro);
     });
 
     formulario.addEventListener("submit",(evento) => {
@@ -115,6 +95,31 @@ fetch ("data/lojas.json")
         lojas[selectLoja.value];
 
         const aparelhoLiga =
-        document.querySelector
-    })
+        document.querySelector(
+            `input[name="aparelho-liga"]:checked`
+        );
+
+        const mensagem = 
+       
+        `===================== *ORÇAMENTO SMARTBLIN* ====================
+         *SOLICITAÇÃO DE ORÇAMENTO*
+
+         Nome: ${nomeCliente.value}
+         Aparelho: ${marcaAparelho.value} - ${modeloAparelho.value}
+         Defeito: ${tipoDefeito.value}
+         O aparelho liga: ${aparelhoLiga.value}
+         Unidade: ${lojaSelecionada.regiao}
+
+         Descrição:
+        ${descricaoDefeito.value}
+
+         Fotos:
+        Enviarei as imagens do aparelho nesta conversa.
+        ===================== *ORÇAMENTO SMARTBLIN* ====================`;
+
+            const urlWhatsapp = 
+            `https://wa.me/${lojaSelecionada.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(urlWhatsapp, "_blank");
+    });
 
