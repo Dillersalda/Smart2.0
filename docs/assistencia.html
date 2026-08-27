@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartblin 2.0</title>
+    <link rel="stylesheet" href="css/assistencia.css">
+    <link rel="stylesheet" href="css/assistencia-responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="assets/images/logo-smartblin.webp" alt="Smartblin">
+    </a>
+
+    <nav class="menu-desktop">
+        <a href="index.html">Início</a>
+        <a href="produtos.html" class="ativo">Produtos</a>
+        <a href="index.html#lojas">lojas</a>
+        <a href="index.html#suporte">Suporte</a>
+    </nav>
+
+
+
+    <nav class="menu-mobile">
+        <div class="menu-topo">
+            <img src="assets/images/logo-smartblin.webp" alt="Smartblin">
+
+            <button class="fechar-menu" aria-label="fechar menu">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+       <div class="menu-divisor"></div>
+        <div class="menu-links">
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Inicio
+            </a>
+            <a href="produtos.html" class="ativo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Produtos
+            </a>
+            <a href="index.html#lojas">
+                <i class="fa-solid fa-location-dot"></i>
+                Lojas
+            </a>
+            <a href="index.html#suporte">
+                <i class="fa-solid fa-headphones"></i>
+                Suporte
+            </a>
+        </div>
+    </nav>
+
+    <div class="menu-overlay"></div>
+
+    <button class="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+<section class="assistencia-hero">
+    
+    <div class="assistencia-hero-conteudo">
+
+        <span class="assitencia-tag">
+            Assistência Técnica
+        </span>
+
+        <h1>
+            Cuidamos do seu aparelho
+            <span>como se fosse nosso.</span>
+        </h1>
+
+        <p>
+            Trabalhamos com os principais aparelhos e marcas para devolver ao seu dispositivo o melhor desempenho.
+        </p>
+
+        <a href="#orcamento" class="btn-assistencia">
+            Solicitar Orçamento
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+
+    </div>
+
+    <div class="assistencia-hero-imagem">
+        <img src="assets/images/assistencia.webp" alt="Técnico realizando manutenção em Smartphone" fetchpriority="high" decoding="async">
+    </div>
+
+</section>
+<section class="aparelhos-atendidos">
+    <div class="aparelhos-topo">
+        <span class="assistencia-tag">Aparelhos atendidos</span>
+        
+        <h2>Aparelhos que atendemos</h2>
+
+        <p>
+            Trabalhamos com diferentes marcas e modelos de smartphones,
+            tablets e outros dispositivos
+        </p>
+    </div>
+
+    <div class="aparelhos-lista">
+
+        <div class="aparelho-item">
+            <i class="fa-brands fa-android"></i>
+
+            <div>
+                <h3>Smartphones Android</h3>
+                <p>
+                    Samsung,Motorola, Xiaomi, Realme, Poco e outras marcas.
+                </p>
+            </div>
+        </div>
+
+        <div class="aparelho-item">
+            <i class="fa-brands fa-apple"></i>
+
+            <div>
+                <h3>Iphones</h3>
+                <p>Modelos de diferentes gerações da linha Iphone</p>
+            </div>
+        </div>
+
+        <div class="aparelho-item">
+            <i class="fa-solid fa-tablet-screen-button"></i>
+
+            <div>
+                <h3>Tablets</h3>
+                <p>Ipad,Samsung Tab e outros modelos compatíveis.</p>
+            </div>
+        </div>
+
+        <div class="aparelho-item">
+            <i class="fa-solid fa-ellipsis"></i>
+
+            <div>
+                <h3>Outros aparelhos</h3>
+            <p>Smartwatches,fones,computadores e outros dispositivos</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="orcamento" id="orcamento">
+
+    <div class="orcamento-topo">
+        <span class="assistencia-tag">Orçamento</span>
+
+        <h2>Solicite seu orçamento</h2>
+
+        <p>
+            Conte pra gente o que aconteceu com seu aparelho.
+            Quanto mais detalhes você enviar, melhor será a avaliação.
+        </p>
+    </div>
+
+    <form class="orcamento-form" id="orcamento-form">
+        <div class="campo-form">
+            <label for="nome-cliente">Seu nome</label>
+
+            <input type="text" id="nome-cliente" placeholder="digite seu nome" required>
+        </div>
+
+        <div class="campo-form">
+            <label for="marca-aparelho">Marca do aparelho</label>
+            <select id="marca-aparelho" required>
+                <option value="">Selecione a marca</option>
+                <option value="Apple">Apple</option>
+                <option value="Samsung">Samsung</option>
+                <option value="Motorola">Motorola</option>
+                <option value="Xiaomi">Xiaomi</option>
+                <option value="Realme">Realme</option>
+                <option value="Outra">Outra</option>
+            </select>  
+        </div>
+
+        <div class="campo-form">
+            <label for="modelo-aparelho">Modelo</label>
+
+            <input
+                type="text"
+                id="modelo-aparelho"
+                placeholder="Ex: Iphone 13,Redmi Note 15..."
+                required
+                >
+        </div>
+
+        <div class="campo-form">
+            <select id="tipo-defeito" required>
+                <option value="">Selecione o defeito</option>
+                <option value="Tela quebrada">Tela quebrada</option>
+                <option value="Não liga">Não liga</option>
+                <option value="Problema na bateria">Problema na bateria</option>
+                <option value="Problema no carregamento">Problema no carregamento</option>
+                <option value="Câmera">Câmera</option>
+                <option value="Áudio">Áudio</option>
+                <option value="Outro">Outro</option>
+            </select>
+        </div>
+
+        <div class="campo-form">
+            <label for="descricao-defeito">Descreva o Problema</label>
+
+            <textarea
+                id="descricao-defeito"
+                rows="5"
+                placeholder="Explique o que aconteceu com o aparelho..."
+                required
+                ></textarea>
+        </div>
+
+        <div class="campo-form">
+            <label>O aparelho liga?</label>
+            <div class="opcoes-radio">
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aparelho-liga"
+                        value="sim"
+                        required
+                        >
+                        Sim
+                </label>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="aparelho-liga"
+                        value="não"
+                        >
+                        Não
+                </label>
+            </div>
+        </div>
+
+        <div class="campo-form">
+            <div class="aviso-fotos">
+                <i class="fa-solid fa-camera"></i>
+
+                <div>
+                    <strong>Fotos do aparelho</strong>
+                    <p>
+                        As imagens do aparelho deverão ser enviadas pelo Whatsapp após a solicitação do orçamento.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="campo-form">
+            <label for="loja-atendimento">
+                Onde você prefere ser atendido?
+            </label>
+
+            <select id="loja-atendimento" required>
+                <option value="">
+                    Selecione uma loja
+                </option>
+            </select>
+        </div>
+
+        <button
+            type="submit"
+            class="btn-orcamento-whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        Solicitar orçamento no Whatsapp
+    </button>
+    </form>
+
+
+</section>
+</body>
+</html>
