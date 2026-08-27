@@ -1,6 +1,7 @@
 [
     {
         "nome": "SmartBlin Piabetá",
+        "regiao": "Piabetá",
         "endereco": "R. Santa Elisa, 134 - Lj B - Piabetá, Magé - RJ, 25931-762",
         "abertura": "09:00",
         "fechamento": "19:00",
@@ -9,6 +10,7 @@
     },
     {
         "nome": "SmartBlin Magé",
+        "regiao": "Magé",
         "endereco": "Passeio Público Dr. Siqueira, 354 - Vila Esperanca, Magé - RJ, 25903-587 (Antiga Drogaria Mais Barato)",
         "abertura": "09:00",
         "fechamento": "17:30",
@@ -17,6 +19,7 @@
     },
     {
         "nome": "SmartBlin Santa Cruz da Serra",
+        "regiao": "Santa Cruz da serra",
         "endereco": "Av. Automóvel Clube, 42 - Vila Santa Cruz, Duque de Caxias - RJ, 25260-220",
         "abertura": "09:00",
         "fechamento": "18:30",

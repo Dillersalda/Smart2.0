@@ -52,4 +52,69 @@ document.querySelector(".novidades-indicadores");
 let novidades = [];
 let indiceAtual = 0;
 
+const selectLoja =
+document.querySelector("#loja-atendimento");
+
+fetch("data/lojas.json")
+    .then(resposta => resposta.json())
+    .then(lojas => {
+        lojas.forEach((loja, indice) => {
+
+            const option =
+            document.createElement("option");
+
+                option.value = indice;
+                option.textContent = loja.regiao;
+
+            selectLoja.appendChild(option);
+        });
+    })
+
+    .catch(erro => {
+        console.error("Erro ao carregar lojas:", erro);
+    });
+
+const formulario =
+document.querySelector("#orcamento-form");
+const nomeCliente =
+document.querySelector("#nome-cliente");
+const marcaAparelho =
+document.querySelector("#marca-aparelho");
+const modeloAparelho =
+document.querySelector("#modelo-aparelho");
+const tipoDefeito =
+document.querySelector("#tipo-defeito");
+const descricaoDefeito =
+document.querySelector("#descricao-defeito");
+
+let lojas = [];
+
+fetch ("data/lojas.json")
+    .then(resposta => resposta.json())
+    .then(dados => {
+        lojas = dados;
+        lojas.forEach((loja, indice) => {
+
+            const option =
+            document.createElement("option");
+
+            option.value = indice;
+            option.textContent = loja.regiao;
+
+            selectLoja.appendChild(option);
+        });
+        });
+        .catch(erro => {
+            console.log("erro ao carregar lojas:", erro);
+    });
+
+    formulario.addEventListener("submit",(evento) => {
+        evento.preventDefault();
+
+        const lojaSelecionada = 
+        lojas[selectLoja.value];
+
+        const aparelhoLiga =
+        document.querySelector
+    })
 
