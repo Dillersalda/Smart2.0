@@ -1,0 +1,187 @@
+@media (min-width: 768px) {
+    /* ===== Tablets ===== */
+    .assistencia-hero {
+        padding:50px 40px;
+    }
+
+    .assistencia-hero h1 {
+        font-size: 2.4rem;
+        max-width: 420px;
+    }
+    
+    .assistencia-hero p {
+        max-width: 440px;
+        font-size: 0.85rem;
+    }
+
+    .assistencia-hero-imagem img {
+        height: 300px;
+    }
+
+    .aparelhos-atendidos,
+    .orcamento,
+    .como-funciona {
+        padding-inline: 40px;
+    }
+
+    .aparelhos-lista {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 18px;
+    }
+
+    .campo-form:has(textarea),
+    .aviso-fotos,
+    .btn-orcamento-whatsapp{
+        grid-column: 1/-1;
+    }
+
+    .etapas-lista {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (min-width:992px) {
+
+    .header {
+        height: 72px;
+        padding: 0 60px;
+    }
+
+    .logo img {
+        width: 105px;
+    }
+
+    .menu-btn,
+    .menu-mobile,
+    .menu-overlay {
+        display: none;
+    }
+
+    .menu-desktop {
+        display:flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .menu-desktop a {
+        position: relative;
+        color:#d8d8d8;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 600;
+        transition: color 0.25s ease;
+    }
+
+    .menu-desktop a:hover,
+    .menu-desktop a.ativo {
+        color: var(--verde);
+    }
+
+    .menu-desktop a.ativo::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom:-10px;
+        height: 2px;
+        background: var(--verde);
+        border-radius: 2px;
+    }
+
+
+    .assistencia-hero {
+        min-height: 520px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 50px;
+        padding: 60px 70px;
+    }
+
+    .assistencia-hero-conteudo {
+        max-width: 520px;
+    }
+
+    .assistencia-hero h1 {
+        font-size: 3rem;
+        max-width: 500px;
+    }
+
+    .assistencia-hero img {
+        height: 400px;
+    }
+
+    .aparelhos-atendidos,
+    .orcamento,
+    .como-funciona {
+        padding-inline: 70px;
+    }
+
+    .aparelhos-lista {
+        grid-template-columns: repeat(4,1fr);
+        gap:20px;
+    }
+
+    .aparelhos-item {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px;
+        border: none;
+        border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .aparelhos-item:last-child {
+        border-right: none;
+    }
+
+    .aparelhos-item > i {
+        justify-content: flex-start;
+        font-size: 2rem;
+    }
+
+    .orcamento {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .orcamento-form {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    .como-funciona {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .etapas-lista {
+        grid-template-columns: repeat(4,1fr);
+        gap: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .assistencia-hero {
+        padding-inline: max(80px,calc((100vw - 1200px) / 2 ));
+
+    }
+
+    .assistencia-hero h1 {
+        font-size: 3.4rem;
+    }
+
+    .assistencia-hero-imagem img {
+        height: 440px;
+    }
+
+    .aparelhos-atendidos,
+    .orcamento,
+    .como-funciona {
+        max-width: 1200px;
+        margin-inline: auto;
+    }
+
+}

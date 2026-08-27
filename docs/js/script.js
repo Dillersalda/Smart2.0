@@ -48,6 +48,8 @@ const novidadeImagem =
 document.querySelector("#novidade-imagem");
 const indicadorContainer =
 document.querySelector(".novidades-indicadores");
+const novidadeLink =
+document.querySelector(".novidades-link");
 
 let novidades = [];
 let indiceAtual = 0;
@@ -122,6 +124,7 @@ fetch("data/novidades.json")
         novidadeImagem.src =
         novidade.imagem;
         novidadeImagem.alt = novidade.alt;
+        novidadeLink.href = novidade.link;
 
         const indicadores =
         document.querySelectorAll(".indicador");
