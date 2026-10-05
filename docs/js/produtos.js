@@ -5,7 +5,7 @@ const fecharMenu = document.querySelector(".fechar-menu");
 const linksMenu = document.querySelectorAll(".menu-links a");
 
 const categoriasFiltro =
-document.querySelectorAll(".categoria-filtro");
+document.querySelectorAll(".categoria-filtro[data-categoria]");
 
 const btnVerTodas =
 document.querySelector(".categorias-limpar");
@@ -19,9 +19,52 @@ document.querySelector("#quantidade-produtos");
 const filtroCategoria =
 document.querySelector("#filtro-categoria");
 
+const buscarProduto =
+document.querySelector("#buscar-produto");
 
+const filtroPreco =
+document.querySelector("#filtro-preco");
+
+const filtroOferta =
+document.querySelector("#filtro-oferta");
+
+const ordenarProdutos =
+document.querySelector("#ordenar-produtos");
+
+const limparFiltros =
+document.querySelector(".filtros-limpar");
+
+const carregarMais =
+document.querySelector(".carregar-mais");
+
+const produtosPorPagina = 4;
+
+const favoritos = new Set();
+
+try {
+    const favoritosSalvos = JSON.parse(
+        localStorage.getItem("smartblin-favoritos") || "[]"
+    );
+
+    if
+    (Array.isArray(favoritosSalvos)) {
+        favoritosSalvos.forEach(id => {
+            if (Number.isInteger(id)) {
+                favoritos.add(id);
+            }
+        });
+    }
+} catch (erro) {
+    console.warn("Não foi possível recuperar os favoritos:", erro);
+}
+
+const filtroFavoritos =
+document.querySelector("#filtro-favoritos");
+
+let limiteProdutos = produtosPorPagina;
 let todosProdutos = [];
 let produtosFiltrados = [];
+let catalogoCarregado = false;
 
 
 // ====================================================================================
@@ -65,17 +108,32 @@ linksMenu.forEach(link => {
 // ====================================================================================
 
 fetch("data/produtos.json")
-    .then(resposta => resposta.json())
+    .then(resposta => {
+        if (!resposta.ok) {
+            throw new Error("Não foi possível carregar o catálogo.");
+        }
+        return resposta.json();
+    } 
+        
+    )
     .then(produtos => {
 
         todosProdutos = produtos;
-        produtosFiltrados = [...produtos];
-
-        renderizarProdutos(produtosFiltrados);
+        catalogoCarregado = true;
+       
+        aplicarFiltros();
     })
 
     .catch(erro => {
         console.error("Erro ao carregar produtos:", erro);
+        quantidadeProdutos.textContent =
+        "Catalogo Indisponível";
+
+        catalogoGrade.innerHTML = `<p class="catalogo-mensagem" role="alert">
+        Não foi possível carregar os Produtos no momento.
+        Recarregue a Página, e tente novamente </p>`;
+
+        carregarMais.hidden = true;
     });
 
 
@@ -88,7 +146,17 @@ function renderizarProdutos(produtos) {
     catalogoGrade.innerHTML = "";
 
     quantidadeProdutos.textContent =
-        `${produtos.length} produtos encontrados`;
+        `${produtosFiltrados.length} produtos encontrados`;
+
+        if (produtos.length === 0) {
+            catalogoGrade.innerHTML = `
+            <p class="catalogo-mensagem" role="status">
+            Nenhum Produto Encontrado.
+                Tente outra busca ou limpe os filtros.
+                </p>`;
+
+                return;
+        }
 
     produtos.forEach(produto => {
 
@@ -104,10 +172,14 @@ function renderizarProdutos(produtos) {
             }
 
             <button
-                class="catalogo-favorito"
-                aria-label="Favoritar ${produto.nome}"
+            type="button"
+            class="catalogo-favorito ${favoritos.has(produto.id) ?
+            "ativo" : ""}"
+            data-id="${produto.id}"
+            aria-label="Favoritar ${produto.nome}"
+            aria-pressed="${favoritos.has(produto.id)}"
             >
-                <i class="fa-regular fa-heart"></i>
+                <i class="${favoritos.has(produto.id) ? "fa-solid" : "fa-regular"} fa-heart"></i>
             </button>
 
             <div class="catalogo-produto-imagem">
@@ -162,90 +234,211 @@ function formatarPreco(valor) {
 
 
 // ====================================================================================
-// CATEGORIAS RÁPIDAS
+// FILTRAR POR BUSCA OU CATEGORIA
 // ====================================================================================
+
+function normalizarTexto(texto) {
+    return texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase()
+    .trim();
+}
+
+function aplicarFiltros(reiniciarLista = true) 
+{
+    if (!catalogoCarregado) {
+        return;
+    }
+
+    if (reiniciarLista) {
+        limiteProdutos =
+        produtosPorPagina;
+    }
+    const textoBusca =
+normalizarTexto(buscarProduto.value);
+
+    const categoriaSelecionada =
+    filtroCategoria.value;
+
+    const faixaPreco =
+    filtroPreco.value;
+    
+
+    produtosFiltrados =
+todosProdutos.filter(produto => {
+    const textoProduto = normalizarTexto(
+        `${produto.nome} ${produto.marca} ${produto.especificacao}`
+    );
+    const correspondeBusca =
+    textoProduto.includes(textoBusca);
+
+    const correspondeCategoria =
+    categoriaSelecionada === "" ||
+
+    produto.categoria ===
+    categoriaSelecionada;
+
+    const correspondeFavorito =
+    !filtroFavoritos.checked || favoritos.has(produto.id);
+
+    const preco = Number(produto.preco);
+
+    let correspondePreco = true;
+
+    if (faixaPreco === "0-500") {
+        correspondePreco = preco >= 0 && preco <= 500;
+    } else if (faixaPreco === "500-1500")
+    {
+        correspondePreco = preco > 500 && preco <= 1500;
+    } else if (faixaPreco ===
+        "1500-3000")
+        {
+            correspondePreco = preco > 1500 && preco <= 3000;
+        } else if (faixaPreco === "3000+") {
+            correspondePreco = preco > 3000;
+        }
+
+    const correspondeOferta = 
+    !filtroOferta.checked || produto.oferta;
+    
+    return correspondeBusca &&
+           correspondeCategoria &&
+           correspondePreco &&
+           correspondeOferta &&
+           correspondeFavorito;
+});
+
+const ordenacao =
+ordenarProdutos.value;
+
+if (ordenacao === "menor-preco") {
+    produtosFiltrados.sort((a, b) => a.preco - b.preco);
+}else if (ordenacao === "maior-preco") {
+        produtosFiltrados.sort((a, b) => b.preco - a.preco);
+} else if (ordenacao === "nome") {
+    produtosFiltrados.sort((a, b) => a.nome.localeCompare(b.nome, "pt-br")
+);
+}
 
 categoriasFiltro.forEach(botao => {
 
-    botao.addEventListener("click", () => {
-
-        categoriasFiltro.forEach(item => {
-            item.classList.remove("ativo");
-        });
-
-        botao.classList.add("ativo");
-
-        const categoriaSelecionada =
-            botao.dataset.categoria;
-
-        produtosFiltrados =
-            todosProdutos.filter(produto => {
-                return produto.categoria === categoriaSelecionada;
-            });
-
-        filtroCategoria.value =
-            categoriaSelecionada;
-
-        renderizarProdutos(produtosFiltrados);
-    });
-
+        botao.classList.toggle(
+            "ativo",
+            botao.dataset.categoria === categoriaSelecionada
+        );
 });
 
+const produtosVisiveis =
+    produtosFiltrados.slice(0,limiteProdutos);
 
-// ====================================================================================
-// VER TODAS
-// ====================================================================================
+    carregarMais.hidden =
+    limiteProdutos >=
+    produtosFiltrados.length;
 
-btnVerTodas.addEventListener("click", () => {
+renderizarProdutos(produtosVisiveis);
+}
 
-    categoriasFiltro.forEach(item => {
-        item.classList.remove("ativo");
+// =========================================================
+//      CATEGORIAS RÁPIDAS 
+// =========================================================
+
+categoriasFiltro.forEach(botao => {
+    botao.addEventListener("click", () => {
+        filtroCategoria.value =
+        botao.dataset.categoria;
+
+        aplicarFiltros();
     });
+});
 
+// =========================================================
+//      VER TODAS
+// =========================================================
+
+btnVerTodas.addEventListener("click", () =>{
     filtroCategoria.value = "";
 
-    produtosFiltrados = [...todosProdutos];
+    aplicarFiltros();
+});
 
-    renderizarProdutos(produtosFiltrados);
+//  ========================================================
+//  SELECT DE CATEGORIA
+//  ========================================================
 
+filtroCategoria.addEventListener("change", () => {
+    aplicarFiltros();
+});
+
+buscarProduto.addEventListener("input", () => {aplicarFiltros()});
+
+filtroPreco.addEventListener("change", () => {
+    aplicarFiltros();
+});
+
+filtroOferta.addEventListener("change", () => {
+    aplicarFiltros();
+});
+
+ordenarProdutos.addEventListener("change", () => {
+    aplicarFiltros();
 });
 
 
-// ====================================================================================
-// FILTRO SELECT - CATEGORIA
-// ====================================================================================
+limparFiltros.addEventListener("click", () => {
+    buscarProduto.value = "";
+   filtroCategoria.value = "";
+   filtroPreco.value = "";
+   filtroOferta.checked = false;
+   ordenarProdutos.value = "";
 
-filtroCategoria.addEventListener("change", () => {
+   aplicarFiltros();
+});
 
-    const categoriaSelecionada =
-        filtroCategoria.value;
+carregarMais.addEventListener("click", () => {
+    limiteProdutos += produtosPorPagina;
+    aplicarFiltros(false);
+});
 
-    categoriasFiltro.forEach(item => {
-        item.classList.remove("ativo");
-    });
+catalogoGrade.addEventListener("click", evento => {
+    const botao =
 
-    if (categoriaSelecionada === "") {
+    evento.target.closest(".catalogo-favorito");
 
-        produtosFiltrados =
-            [...todosProdutos];
-
-    } else {
-
-        produtosFiltrados =
-            todosProdutos.filter(produto => {
-                return produto.categoria === categoriaSelecionada;
-            });
-
-        const botaoAtivo =
-            document.querySelector(
-                `.categoria-filtro[data-categoria="${categoriaSelecionada}"]`
-            );
-
-        if (botaoAtivo) {
-            botaoAtivo.classList.add("ativo");
-        }
+    if (!botao) {
+        return;
     }
 
-    renderizarProdutos(produtosFiltrados);
+    const id =
+    Number(botao.dataset.id);
 
+    if (favoritos.has(id)) {
+        favoritos.delete(id);
+    } else {
+        favoritos.add(id);
+    }
+
+    try{
+        localStorage.setItem(
+            "smartblin-favoritos",
+            JSON.stringify([...favoritos])
+        );
+    } catch (erro) {
+        console.warn("Não foi possivel salvar os favoritos:", erro);
+ 
+   }
+
+    const estaFavoritado =
+    favoritos.has(id);
+
+    botao.classList.toggle("ativo",estaFavoritado);
+
+    botao.setAttribute("aria-pressed", estaFavoritado);
+
+    const icone =
+    botao.querySelector("i");
+
+    icone.classList.toggle("fa-solid", estaFavoritado);
+
+    icone.classList.toggle("fa-regular",!estaFavoritado);
 });

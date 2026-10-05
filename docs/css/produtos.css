@@ -729,3 +729,22 @@ body {
     text-transform: uppercase;
     cursor: pointer;
 }
+.catalogo-mensagem {
+    grid-column: 1 / -1;
+    padding: 24px 16px;
+    color: #ddd;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.carregar-mais[hidden] {
+    display: none;
+}
+
+a.categoria-filtro {
+    text-decoration: none;
+}
+
+.catalogo-favorito.ativo {
+    color: #59ff59;
+}
