@@ -73,6 +73,39 @@ fetch ("data/lojas.json")
     .then(resposta => resposta.json())
     .then(dados => {
         lojas = dados;
+
+        const listaModalLojas =
+            document.querySelector(".modal-lojas-lista");
+
+        lojas.forEach(loja => {
+            const botao =
+            document.createElement("button");
+            const mensagem =
+            "Olá! Vim pelo site da Smartblin e gostaria de atendimento Técnico.";
+
+            listaModalLojas.appendChild(botao);
+            botao.innerHTML = `
+            <i class="fa-solid fa-location-dot"></i>
+            
+            <div>
+                <strong>${loja.nome}</strong>
+                <span>Atendimento via Whatsapp</span>
+                </div>
+                <i class="fa-solid fa-chevron-right"></i>`;
+            botao.classList.add("modal-loja-item");
+
+            botao.addEventListener("click", () => {
+                const urlWhatsapp = `https://wa.me/${loja.whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+                modalLojas.classList.remove("ativo");
+
+                window.open(urlWhatsapp, "_blank");
+            });
+
+            
+
+
+        });
         lojas.forEach((loja, indice) => {
 
             const option =
@@ -121,5 +154,27 @@ fetch ("data/lojas.json")
             `https://wa.me/${lojaSelecionada.whatsapp}?text=${encodeURIComponent(mensagem)}`;
 
             window.open(urlWhatsapp, "_blank");
+    });
+
+    const btnAbrirWhatsapp =
+    document.querySelector("#abrir-whatsapp");
+    const modalLojas =
+    document.querySelector("#modal-lojas");
+    const fecharModalLojas =
+    document.querySelector(".modal-lojas-fechar");
+    const overlayModalLojas =
+    document.querySelector(".modal-lojas-overlay");
+
+    btnAbrirWhatsapp.addEventListener("click", (evento) => {
+        evento.preventDefault();
+        modalLojas.classList.add("ativo");
+    });
+    
+    fecharModalLojas.addEventListener("click", () => {
+        modalLojas.classList.remove("ativo");
+    });
+
+    overlayModalLojas.addEventListener("click", () => {
+        modalLojas.classList.remove("ativo");
     });
 
